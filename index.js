@@ -1,6 +1,14 @@
 const express = require('express');
+const cors = require('cors'); // 1. Import it
 const app = express();
 const PORT = 8000;
+
+// 2. Configure it
+app.use(cors({
+  origin: ['https://laughtale.co.za', 'https://www.laughtale.co.za'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.get('/', (req, res) => {
   res.json({ 
